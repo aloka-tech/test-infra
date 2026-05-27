@@ -5,25 +5,40 @@ export interface Quote {
   createdAt: string
 }
 
-export interface HighlightMeta {
-  id: string
-  text: string
-  author: string
-  setAt: string
-}
-
 export interface ApiError {
   code: string
   message: string
 }
 
-export type QuotesResponse = { data: Quote[] }
-export type HighlightResponse = { data: HighlightMeta }
+export type QuotesResponse = {
+  quotes: Quote[]
+  count: number
+}
+
+export type HighlightResponse = {
+  quote: Quote
+  highlightSetAt: string
+  fallback?: true
+}
+
 export type StatsResponse = {
-  data: {
-    redisConnected: boolean
-    highlightKey: string | null
-    highlightSetAt: string | null
-    quotesCached: boolean
+  timestamp: string
+  database: {
+    connected: boolean
+    totalQuotes: number
+    error?: string
+  }
+  redis: {
+    connected: boolean
+    highlight: {
+      id: string
+      setAt: string
+      ageSeconds: number
+    } | null
+    quotesAllCached: boolean
+    quotesAllTTLSeconds: number | null
+  }
+  uptime: {
+    processSeconds: number
   }
 }
