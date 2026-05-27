@@ -1,8 +1,10 @@
 import { Router, type IRouter } from 'express'
+import { getStats } from '../services/quote-service'
 
 export const statsRouter: IRouter = Router()
 
-// GET /api/stats
 statsRouter.get('/', async (_req, res) => {
-  res.status(501).json({ error: { code: 'NOT_IMPLEMENTED', message: 'Not yet implemented' } })
+  const result = await getStats()
+  res.setHeader('Cache-Control', 'no-store')
+  res.json(result)
 })
