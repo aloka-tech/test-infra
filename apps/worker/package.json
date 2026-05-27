@@ -1,0 +1,26 @@
+{
+  "name": "@quotekai/worker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --env-file=.env --require tsx/cjs --watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bullmq": "^5.0.0",
+    "ioredis": "^5.4.1",
+    "pino": "^9.4.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@quotekai/shared-types": "workspace:*",
+    "@types/node": "^20.0.0",
+    "pino-pretty": "^11.3.0",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
