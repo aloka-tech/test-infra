@@ -11,6 +11,7 @@ const schema = z.object({
     .string()
     .transform((v) => v === 'true')
     .default('false'),
+  CLOUDFLARE_API_BASE_URL: z.string().default(''),
 })
 
 const env = schema.parse(process.env)
@@ -24,5 +25,6 @@ export const config = {
     zoneId: env.CLOUDFLARE_ZONE_ID,
     apiToken: env.CLOUDFLARE_API_TOKEN,
     purgeEnabled: env.CLOUDFLARE_PURGE_ENABLED,
+    apiBaseUrl: env.CLOUDFLARE_API_BASE_URL,
   },
 }
