@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+out/
+build/
+
+# Next.js
+.next/
+
+# Expo
+.expo/
+expo-env.d.ts
+
+# Environment variables — never commit these
+.env
+.env.local
+.env.*.local
+
+# Prisma generated client
+node_modules/.prisma/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
